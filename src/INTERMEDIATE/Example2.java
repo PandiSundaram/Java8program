@@ -32,12 +32,9 @@ public class Example2 {
        System.out.println(li);
 
 
-       Character a[][] = new Character[][]{{'a','b','c'},{'d','e','f'},{'g','h','i'}};
+       Character a[][] = new Character[][]{{'a','b','c'},{'g','h','i'},{'d','e','f'}};
 
-       List<Character> characterList = Arrays.stream(a)
-               .flatMap(b -> Arrays.stream(b).sorted())
-               .collect(Collectors.toList());
-
+       List<Character> characterList =  Arrays.stream(a).flatMap(a1 -> Arrays.stream(a1)).sorted().collect(Collectors.toList());
        System.out.println(characterList);
 
 

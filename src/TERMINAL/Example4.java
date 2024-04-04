@@ -9,6 +9,7 @@ public class Example4 {
 
     public static void main(String arg[]) {
 
+
         List<Employee> empList = Arrays.asList(
                 new Employee("Schwerin", "zchwerin@gmail.com", "Male", 5000),
                 new Employee("Kyle", "kfrudd1@ovh.net", "Male", 20000),
@@ -45,6 +46,8 @@ public class Example4 {
         List<Integer> salaryList = empList.stream().map(e -> e.getSalary()).collect(Collectors.toList());
 
         Map<Boolean,List<Integer>> partion= salaryList.stream().collect(Collectors.partitioningBy(e -> e > 30000));
+
+        System.out.println(partion);
 
         Map<Boolean,Long> partionboolean =  salaryList.stream().collect(Collectors.partitioningBy(e->e > 30000,Collectors.counting()));
 
@@ -84,7 +87,7 @@ public class Example4 {
 
         List<String> maplist = Arrays.asList("apple","banana","grape","cuva");
         Map<Character,String> map1 = maplist.stream().collect(Collectors.toMap(a->a.charAt(0),a-> a));
-        //System.out.println(map1);
+//        System.out.println(map1);
         List<String> maplist1 = Arrays.asList("apple","banana","grape","guva");
         Map<Character,String> map2 = maplist1.stream().collect(Collectors.toMap(a->a.charAt(0),a->a,(a,a1)-> a1));
 //        System.out.println(map2);
